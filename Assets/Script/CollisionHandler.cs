@@ -14,6 +14,7 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Finish":
                 Debug.Log("Perfect Landing!");
+                SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex+1));
                 break;
             case "Start":
                 Debug.Log("On launching pad");
