@@ -421,6 +421,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 548724998, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 548724998, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 548724998, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 548724999, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: crashSound
+      value: 
+      objectReference: {fileID: 8300000, guid: cfb720cd08f2bd845a5f17e0eb9cac27, type: 3}
+    - target: {fileID: 548724999, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: LandingSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e5a6d153e9e8e94c819185c88addaa7, type: 3}
     - target: {fileID: 1896133761210968530, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -478,6 +498,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 242433930118434372, guid: 322da1e8b0f9c9247923db07e32a9fc4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8511540714249994079, guid: 322da1e8b0f9c9247923db07e32a9fc4, type: 3}
       propertyPath: m_Name
       value: Landing Pad

@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Perfect Landing! - Level 0.unity
     guid: 5e3929a5f23c6104187302749eb9e11b
+  - enabled: 1
+    path: Assets/Scenes/Fly Over - Level 1.unity
+    guid: a7fff37ccb854114ba403a4364e871b1
   m_configObjects: {}

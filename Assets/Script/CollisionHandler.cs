@@ -5,7 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class CollisionHandler : MonoBehaviour
 {
+    [SerializeField] AudioClip crashSound;
+    [SerializeField] AudioClip LandingSound;
+    AudioSource audioSource;
+
+    void Start() {
+        audioSource = GetComponent<AudioSource>();
+    }
     
+    float LevelLoadDelay = 1.5f;
     void OnCollisionEnter(Collision other) {
         
         switch(other.gameObject.tag){
@@ -14,20 +22,35 @@ public class CollisionHandler : MonoBehaviour
                 break;
             case "Finish":
                 Debug.Log("Perfect Landing!");
-                SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex+1));
+                LoadNextLevel();
                 break;
             case "Start":
                 Debug.Log("On launching pad");
                 break;
             default:
                 Debug.Log("BOOM");
-                ReloadLevel();
+                CrashSequence();
                 break;
         }
 
     }
+    void CrashSequence(){
+        // audioSource.PlayOneShot(crashSound);
+        GetComponent<RocketMovement>().enabled = false;
+        Invoke("ReloadLevel",LevelLoadDelay);
+    }
 
-    private static void ReloadLevel()
+    void LandingSequence(){
+        GetComponent<RocketMovement>().enabled = false;
+        Invoke("LoadNextLevel",LevelLoadDelay);
+    }
+    void LoadNextLevel()
+    {
+        int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene((currentLevel + 1));
+    }
+
+    void ReloadLevel()
     {
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentLevel);
