@@ -471,12 +471,28 @@ PrefabInstance:
       value: 56
       objectReference: {fileID: 0}
     - target: {fileID: 548724992, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 548724992, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: acceleration
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 548724992, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
       propertyPath: thrustVelocity
-      value: 750
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 548724992, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
       propertyPath: rotationVelocity
       value: 75
+      objectReference: {fileID: 0}
+    - target: {fileID: 548724992, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: maxThrustVelocity
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 548724992, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
+      propertyPath: minThrustVelocity
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 1896133761210968530, guid: 42799a7bfd6f2bd4caeb956a0a6b3f2c, type: 3}
       propertyPath: m_RootOrder
