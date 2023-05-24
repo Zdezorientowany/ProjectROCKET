@@ -7,8 +7,9 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] AudioClip crashSound;
     [SerializeField] AudioClip LandingSound;
-    AudioSource aus;
+    [SerializeField] ParticleSystem crashParticles;
 
+    AudioSource aus;
     bool isSequenceStarted = false;
 
     void Start() {
@@ -43,6 +44,7 @@ public class CollisionHandler : MonoBehaviour
         isSequenceStarted = true;
         aus.Stop();
         aus.PlayOneShot(crashSound);
+        crashParticles.Play();
         GetComponent<RocketMovement>().enabled = false;
         Invoke("ReloadLevel",LevelLoadDelay);
     }
