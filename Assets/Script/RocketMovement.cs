@@ -15,19 +15,19 @@ public class RocketMovement : MonoBehaviour
     [SerializeField] float rotationVelocity = 75f;
 
     [SerializeField] AudioClip engineBoostSound;
-    AudioSource audiosource;
+    AudioSource aus;
     Rigidbody rocketRigidbody; 
     // Start is called before the first frame update
     void Start(){
         rocketRigidbody = GetComponent<Rigidbody>();
-        audiosource = GetComponent<AudioSource>();
-        audiosource.clip = engineBoostSound;
-        audiosource.Play();
+        aus = GetComponent<AudioSource>();
+        
+        
     }
 
     // Update is called once per frame
     void Update(){
-
+        
         RocketBoost();
         RocketRotation();
 
@@ -36,15 +36,16 @@ public class RocketMovement : MonoBehaviour
     void RocketBoost(){
 
         if(Input.GetKey(KeyCode.Space)){
-            if(!audiosource.isPlaying) {
-                // audiosource.PlayOneShot(engineBoostSound);
+            if(!aus.isPlaying) {
+                aus.PlayOneShot(engineBoostSound);
+                // aus.Play();
             }
             if(thrustVelocity < maxThrustVelocity){
                 thrustVelocity = thrustVelocity + (1 * Time.deltaTime * acceleration);
             }
             rocketRigidbody.AddRelativeForce(Vector3.up * Time.deltaTime * thrustVelocity);
         }else if(thrustVelocity > minThrustVelocity){
-            // if(audiosource.isPlaying) audiosource.Stop();
+            if(aus.isPlaying) aus.Stop();
             thrustVelocity = thrustVelocity - (1 * Time.deltaTime * acceleration * 2);
         }
     } 

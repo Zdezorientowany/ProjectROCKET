@@ -3,7 +3,8 @@ guid: 72aa628843274e74690302187973403b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - engineBoostSound: {fileID: 8300000, guid: d1c13d2acffea77479aa11e9fbdca850, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

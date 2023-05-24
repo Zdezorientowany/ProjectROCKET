@@ -148,6 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b500912e4cbb2ce43b1a81fd0c600fbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  crashSound: {fileID: 8300000, guid: cfb720cd08f2bd845a5f17e0eb9cac27, type: 3}
+  LandingSound: {fileID: 8300000, guid: 0e5a6d153e9e8e94c819185c88addaa7, type: 3}
 --- !u!82 &548724998
 AudioSource:
   m_ObjectHideFlags: 0
@@ -159,7 +161,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: -1.5
   Loop: 0
@@ -204,7 +206,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

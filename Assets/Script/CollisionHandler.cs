@@ -7,10 +7,10 @@ public class CollisionHandler : MonoBehaviour
 {
     [SerializeField] AudioClip crashSound;
     [SerializeField] AudioClip LandingSound;
-    AudioSource audioSource;
+    AudioSource aus;
 
     void Start() {
-        audioSource = GetComponent<AudioSource>();
+        aus = GetComponent<AudioSource>();
     }
     
     float LevelLoadDelay = 1.5f;
@@ -35,7 +35,7 @@ public class CollisionHandler : MonoBehaviour
 
     }
     void CrashSequence(){
-        // audioSource.PlayOneShot(crashSound);
+        aus.PlayOneShot(crashSound);
         GetComponent<RocketMovement>().enabled = false;
         Invoke("ReloadLevel",LevelLoadDelay);
     }
