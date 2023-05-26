@@ -4,67 +4,104 @@ using UnityEngine;
 
 public class RocketMovement : MonoBehaviour
 {
-
-    
-    
     [SerializeField] float thrustVelocity = 500f;
     [SerializeField] float maxThrustVelocity = 1500f;
     [SerializeField] float minThrustVelocity = 500f;
 
     [SerializeField] float acceleration = 200f;
-    [SerializeField] float rotationVelocity = 75f;
+    [SerializeField] float rotationVelocity = 100f;
+    [SerializeField] ParticleSystem engineParticles;
+    [SerializeField] ParticleSystem leftEngineParticles;
+    [SerializeField] ParticleSystem rightEngineParticles;
 
     [SerializeField] AudioClip engineBoostSound;
     AudioSource aus;
     Rigidbody rocketRigidbody; 
-    // Start is called before the first frame update
-    void Start(){
+    
+    void Start()
+    {
         rocketRigidbody = GetComponent<Rigidbody>();
-        aus = GetComponent<AudioSource>();
-        
-        
+        aus = GetComponent<AudioSource>();    
     }
 
-    // Update is called once per frame
-    void Update(){
-        
+    void Update()
+    {
         RocketBoost();
         RocketRotation();
-
     }
 
-    void RocketBoost(){
-
-        if(Input.GetKey(KeyCode.Space)){
-            if(!aus.isPlaying) {
-                aus.PlayOneShot(engineBoostSound);
-                // aus.Play();
-            }
-            if(thrustVelocity < maxThrustVelocity){
-                thrustVelocity = thrustVelocity + (1 * Time.deltaTime * acceleration);
-            }
-            rocketRigidbody.AddRelativeForce(Vector3.up * Time.deltaTime * thrustVelocity);
-        }else if(thrustVelocity > minThrustVelocity){
-            if(aus.isPlaying) aus.Stop();
-            thrustVelocity = thrustVelocity - (1 * Time.deltaTime * acceleration * 2);
+    void RocketBoost()
+    {
+        if(Input.GetKey(KeyCode.Space))
+        {
+            StartBoosting();
         }
-    } 
+        else if(thrustVelocity > minThrustVelocity)
+        {
+            EndBoosting();
+        }
+    }
+    void StartBoosting()
+    {
+        if (engineParticles.isStopped) engineParticles.Play();
+        if (!aus.isPlaying) aus.PlayOneShot(engineBoostSound);
 
-    void RocketRotation(){
-
+        if (thrustVelocity < maxThrustVelocity)
+        {
+            thrustVelocity = thrustVelocity + (1 * Time.deltaTime * acceleration);
+        }
+        rocketRigidbody.AddRelativeForce(Vector3.up * Time.deltaTime * thrustVelocity);
+    }
+    void EndBoosting()
+    {
+        if (engineParticles.isPlaying) engineParticles.Stop();
+        thrustVelocity = thrustVelocity - (1 * Time.deltaTime * acceleration * 2);
+    }
+    
+    void RocketRotation()
+    {
         if(Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationVelocity);
+            RotateLeft();
         }
-        else if(Input.GetKey(KeyCode.D)){
-            ApplyRotation(-rotationVelocity);
+        else if(Input.GetKey(KeyCode.D))
+        {
+            RotateRight();
+        }
+        else
+        {
+            StopRotating();
         }
     }
-    //Method that manually rotate rocketby prompting value
-    private void ApplyRotation(float rotationSpeed)
+
+    void RotateLeft()
+    {
+        if (!aus.isPlaying) aus.PlayOneShot(engineBoostSound);
+        if (leftEngineParticles.isPlaying) leftEngineParticles.Stop();
+        if (rightEngineParticles.isStopped) rightEngineParticles.Play();
+        ApplyRotation(rotationVelocity);
+    }
+
+    void RotateRight()
+    {
+        if (!aus.isPlaying) aus.PlayOneShot(engineBoostSound);
+        if (rightEngineParticles.isPlaying) rightEngineParticles.Stop();
+        if (leftEngineParticles.isStopped) leftEngineParticles.Play();
+        ApplyRotation(-rotationVelocity);
+    }
+
+    void ApplyRotation(float rotationSpeed)
     {
         rocketRigidbody.freezeRotation = true;
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
         rocketRigidbody.freezeRotation = false;
     }
+
+    void StopRotating()
+    {
+        leftEngineParticles.Stop();
+        rightEngineParticles.Stop();
+        if(!Input.GetKey(KeyCode.Space)) if (aus.isPlaying) aus.Stop();
+    }
+
 }
