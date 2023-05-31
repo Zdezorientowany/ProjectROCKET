@@ -5,9 +5,6 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Sandbox.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/Scenes/Levels/Level 0 - Perfect Landing!.unity
     guid: 5e3929a5f23c6104187302749eb9e11b
@@ -15,6 +12,15 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level 1 - Fly Over.unity
     guid: 50b1d2c660eb32c4da13ea7aa45aef2a
   - enabled: 1
-    path: Assets/Scenes/Levels/Level 4 - tripple gap.unity
+    path: Assets/Scenes/Levels/Level 2 - Something Falling From The Sky.unity
+    guid: 5417b2db6d9103641af8feeae427791f
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 3 - Through the gap.unity
+    guid: 262780b94bfd98f499932cd8b1375ad5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 4 - Tripple gap.unity
     guid: d5505ec77e0f78c4785e0e362d99fef2
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level 5 - Dark Cave.unity
+    guid: 5aa241d8f08449042aa138199e30245f
   m_configObjects: {}

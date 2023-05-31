@@ -12,13 +12,14 @@ public class CollisionHandler : MonoBehaviour
     AudioSource aus;
     bool isSequenceStarted = false;
 
-    void Start() {
+    void Start() 
+    {
         aus = GetComponent<AudioSource>();
     }
     
     float LevelLoadDelay = 1.5f;
-    void OnCollisionEnter(Collision other) {
-
+    void OnCollisionEnter(Collision other) 
+    {
         if(isSequenceStarted) return;
 
         switch(other.gameObject.tag){
@@ -33,10 +34,10 @@ public class CollisionHandler : MonoBehaviour
                 CrashSequence();
                 break;
         }
-        
     }
-    void CrashSequence(){
 
+    void CrashSequence()
+    {
         isSequenceStarted = true;
         aus.Stop();
         aus.PlayOneShot(crashSound);
@@ -45,29 +46,32 @@ public class CollisionHandler : MonoBehaviour
         Invoke("ReloadLevel",LevelLoadDelay);
     }
 
-    void LandingSequence(){
-
+    void LandingSequence()
+    {
         isSequenceStarted = true;
         aus.Stop();
         aus.PlayOneShot(LandingSound);
         GetComponent<RocketMovement>().enabled = false;
         Invoke("LoadNextLevel",LevelLoadDelay);
     }
-    void LoadNextLevel(){
 
+    void LoadNextLevel()
+    {
         isSequenceStarted = false;
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
+        
+        if(currentLevel == (SceneManager.sceneCountInBuildSettings-1)){
+            Debug.Log(SceneManager.sceneCountInBuildSettings);
+            Application.Quit();
+        } 
         SceneManager.LoadScene((currentLevel + 1));
     }
 
-    void ReloadLevel(){
-
+    void ReloadLevel()
+    {
         isSequenceStarted = false;
         int currentLevel = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentLevel);
     }
-
-
-
 
 }
