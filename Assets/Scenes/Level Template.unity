@@ -478,6 +478,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 242433930118434372, guid: 322da1e8b0f9c9247923db07e32a9fc4, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8511540714249994079, guid: 322da1e8b0f9c9247923db07e32a9fc4, type: 3}
       propertyPath: m_Name
       value: Landing Pad
