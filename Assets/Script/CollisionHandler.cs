@@ -23,17 +23,13 @@ public class CollisionHandler : MonoBehaviour
 
         switch(other.gameObject.tag){
             case "Friendly":
-                Debug.Log("Collision with friendly target");
                 break;
             case "Finish":
-                Debug.Log("Perfect Landing!");
                 LandingSequence();
                 break;
             case "Start":
-                Debug.Log("On launching pad");
                 break;
             default:
-                Debug.Log("BOOM");
                 CrashSequence();
                 break;
         }
