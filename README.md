@@ -32,7 +32,7 @@ Create a new branch for your feature or bug fix.
 Make your changes and test thoroughly.
 Submit a pull request explaining the changes you've made.
 License
-This game is released under the GNU License.
+This game is released under the MIT License.
 
 Acknowledgments
 Project ROCKET was developed by Szymon Kilian as a personal project. Special thanks to the Unity community for providing helpful resources and tutorials.
