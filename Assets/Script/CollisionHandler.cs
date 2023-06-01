@@ -11,12 +11,12 @@ public class CollisionHandler : MonoBehaviour
 
     AudioSource aus;
     bool isSequenceStarted = false;
-
+    
     void Start() 
     {
         aus = GetComponent<AudioSource>();
     }
-    
+
     float LevelLoadDelay = 1.5f;
     void OnCollisionEnter(Collision other) 
     {

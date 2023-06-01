@@ -1958,7 +1958,6 @@ GameObject:
   - component: {fileID: 548724999}
   - component: {fileID: 548724998}
   - component: {fileID: 7655686021482567764}
-  - component: {fileID: 6925207557018748603}
   m_Layer: 0
   m_Name: Rocket
   m_TagString: Player
@@ -2166,18 +2165,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fd275a5e900ce154ab17e197405887c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &6925207557018748603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8285711282240260350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 016d5ea0cd28d0143a2ac0cb82da8fbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8341597259136358460
